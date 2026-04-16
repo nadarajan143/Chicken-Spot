@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chicken Spot</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background: #f5f5f5;
+    }
+
+    /* NAVBAR */
+    nav {
+      background: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 800;
+      font-size: 1.5rem;
+    }
+
+    nav h2 {
+      color: #ffb703;
+    }
+
+    nav a {
+      color: #ffb703;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    /* HERO */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') no-repeat center/cover;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+
+    .hero p {
+      color: #ffb703;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      border: none;
+      background: #ffb703;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: orange;
+      transform: scale(1.1);
+    }
+
+    /* MENU */
+    .menu {
+      padding: 40px;
+    }
+
+    .menu h2 {
+      text-align: center;
+    }
+
+    .items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3,
+    .card p {
+      text-align: center;
+    }
+
+    .card button {
+      display: block;
+      margin: 10px auto 15px;
+      padding: 8px 15px;
+      border: none;
+      background: #ffb703;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #111;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .contact-box {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .map,
+    .form {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .form input,
+    .form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .form button {
+      background: #ffb703;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* POPUP */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .popup-content {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      width: 300px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .popup button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      border: none;
+      background: #ffb703;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      background: black;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <img src="img/IMG-20260415-WA0003.jpg" alt="" height="100px" width="100px">
+    <div>
+      <a href="#">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Delicious Fried Chicken 🔥</h1>
+    <p>Taste the Best Burgers & Wraps</p>
+    <button onclick="openPopup()">Order Now</button>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu" id="menu">
+    <h2>Our Menu</h2>
+
+    <div class="items">
+      <div class="card">
+        <img src="img/IMG_20260415_110831-removebg-preview.png">
+        <h3>Chicken Burger</h3>
+        <p>₹120</p>
+        <button onclick="openPopup()">Order</button>
+      </div>
+
+      <div class="card">
+        <img src="img/IMG_20260415_110905.jpg">
+        <h3>Sandwich</h3>
+        <p>₹100</p>
+        <button onclick="openPopup()">Order</button>
+      </div>
+
+      <div class="card">
+        <img src="img/IMG_20260415_110732.jpg">
+        <h3>Wrap</h3>
+        <p>₹130</p>
+        <button onclick="openPopup()">Order</button>
+      </div>
+      <div class="card">
+        <img src="img/IMG_20260415_111913.jpg">
+        <h3>Fried Chicken</h3>
+        <p>₹299</p>
+        <button onclick="openPopup()">Order</button>
+      </div>
+
+      <div class="card">
+        <img src="img/IMG_20260415_123649.jpg">
+        <h3>Mojito</h3>
+        <p>₹80</p>
+        <button onclick="openPopup()">Order</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+
+    <div class="contact-box">
+      <div class="map">
+        <iframe src="https://www.google.com/maps?q=Chennai&output=embed"></iframe>
+      </div>
+
+      <div class="form">
+        <form onsubmit="sendMsg(event)">
+          <input type="text" placeholder="Your Name" required>
+          <input type="tel" placeholder="Phone Number" required>
+          <textarea placeholder="Your Order" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- POPUP -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h2>🍔 Visit Our Store</h2>
+      <p>Come & enjoy tasty food!</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Chicken Spot</p>
+  </footer>
+
+  <script>
+    function openPopup() {
+      document.getElementById("popup").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    function sendMsg(e) {
+      e.preventDefault();
+
+      let name = document.querySelector('input[type="text"]').value;
+      let phone = document.querySelector('input[type="tel"]').value;
+      let order = document.querySelector('textarea').value;
+
+      let message = `Name: ${name}%0APhone: ${phone}%0AOrder: ${order}`;
+
+      let whatsappNumber = "+918531099042"; // 👈 உங்கள் number (country code + number)
+
+      let url = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+
+</html>
